@@ -1,0 +1,42 @@
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-30%); /* Start off-screen to the left */
+    opacity: 0; /* Start invisible */
+  }
+  100% {
+    transform: translateX(0); /* End at the original position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+.leftanimate{
+  animation: slideInFromLeft 0.8s ease-out forwards; /* 0.8s duration and ease-out effect */
+  opacity: 1; /* Ensure the element starts invisible */
+}
+
+
+
+
+@keyframes slideInFromRigth {
+  0% {
+    transform: translateX(30%); /* Start off-screen to the left */
+    opacity: 0; /* Start invisible */
+  }
+  100% {
+    transform: translateX(0); /* End at the original position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+.rigthanimate{
+  animation: slideInFromRigth 0.8s ease-out forwards; /* 0.8s duration and ease-out effect */
+  opacity: 1; /* Ensure the element starts invisible */
+}
+
+
+.headerli:hover{
+  transform: scale(1.05);
+  color: white;
+  background-color: #ea580c;
+  transition: 0.5s;
+}
