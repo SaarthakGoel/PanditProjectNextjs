@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const pujaSchema = new mongoose.Schema({
+const orderSchema = new mongoose.Schema({
   type : {
     type : String,
     required : true
@@ -16,13 +16,12 @@ const pujaSchema = new mongoose.Schema({
   description : {
     type : String,
     required : true
-  },
-  images : {
-    type : String,
-    required : true
   }
+},
+{
+  timestamps : true
 })
 
-const Puja = mongoose.models.Puja || mongoose.model(pujaSchema , 'Puja');
+const Order = mongoose.models.Order || mongoose.model(pujaSchema , 'Order');
 
-export default Puja;
+export default Order;

@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  margin-top: 18vh;
+body{
+  padding-top: 21vh;
 }

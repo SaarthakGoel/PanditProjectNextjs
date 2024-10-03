@@ -15,7 +15,7 @@ export default function Home() {
       </Head>
 
       {/* Hero Section */}
-      <section className="bg-white flex justify-evenly py-24">
+      <section className="bg-white flex justify-evenly pt-10 pb-24">
         <div className="px-6 py-16 text-center lg:py-24">
           <h1 className="text-4xl font-extrabold text-gray-800 md:text-7xl">
             Book <span className="text-orange-600">Pandits</span><br /> for Puja
@@ -98,10 +98,7 @@ export default function Home() {
       </div>
     </div>
   </div>
-</section>
-
-
-      
+</section>    
     </div>
   );
 }

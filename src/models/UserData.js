@@ -8,26 +8,21 @@ const UserSchema = new mongoose.Schema({
   address : {
     houseNo : {
       type : String,
-      required : true
     },
     landmark : String,
     society : {
       type : String,
-      required : true
     },
     city : {
       type : String,
-      required : true
     },
     state : {
       type : String,
-      required : true
     }
   },
   orders : {
     pujaId : {
       type : mongoose.Schema.Types.ObjectId,
-      required : true,
       ref : 'Puja'
     },
     orderDate : String
