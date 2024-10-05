@@ -239,4 +239,36 @@ export const pujas = [
     "description": "A recitation of Hanuman Chalisa, performed to seek strength, courage, and the blessings of Lord Hanuman.",
     "image": "https://d2yiyjum1sxmcg.cloudfront.net/samskara/eRpRO_gabkz_mJ1xY_Durga%20Shapashati%20copy_11zon.png"
   }
+];
+
+
+const bhajanData = [
+  {
+    bhajan_id : 1,
+    bhajan_name : "",
+    bhajan_link : "",
+    lyrics : "",
+    image : ""
+  }
 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
