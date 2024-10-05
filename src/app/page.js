@@ -1,4 +1,4 @@
-import Midsection from '@/components/Midsection';
+import Midsection from '@/components/midsection/Midsection';
 import connectToDB from '@/database';
 import Head from 'next/head';
 import Image from 'next/image';

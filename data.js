@@ -242,17 +242,6 @@ export const pujas = [
 ];
 
 
-const bhajanData = [
-  {
-    bhajan_id : 1,
-    bhajan_name : "",
-    bhajan_link : "",
-    lyrics : "",
-    image : ""
-  }
-]
-
-
 
 
 

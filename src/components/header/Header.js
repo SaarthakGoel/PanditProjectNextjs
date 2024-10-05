@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import './Midsection.css';
+import '../midsection/Midsection.css';
 import {
   SignInButton,
   SignedIn,

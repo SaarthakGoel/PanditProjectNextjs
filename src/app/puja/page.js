@@ -1,6 +1,6 @@
 'use client'
 import { pujas } from "../../../data";
-import PujaCard from "@/components/pujaCard";
+import PujaCard from "@/components/pujacard/pujaCard";
 import Image from "next/image";
 import { useState } from "react";
 

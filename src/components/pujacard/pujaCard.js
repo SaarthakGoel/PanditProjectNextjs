@@ -12,7 +12,7 @@ export default function PujaCard({item}) {
 
   return (
     <div className="col-span-4 flex flex-col p-6 rounded-lg bg-white">
-      <Image className="h-48" src={item.image} width={300} height={300} />
+      <Image loading="lazy" className="h-48" src={item.image} width={300} height={300} />
       <span className="text-xl font-bold pt-4">{item.puja_name}</span>
       <p className="text-slate-500 text-sm pt-4">{item.description}</p>
       <hr className="my-3" />
