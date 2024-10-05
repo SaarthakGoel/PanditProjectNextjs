@@ -4,7 +4,7 @@ import { fetchYTdata, fetchMoreYTdata } from "../api/fetchYTdata/route";
 import { useState, useEffect } from "react";
 
 export default function BhajanPage() {
-  const [finalData, setFinalData] = useState({ items: [] }); // Initialized with an empty array
+  const [finalData, setFinalData] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -19,10 +19,14 @@ export default function BhajanPage() {
       const moreData = await fetchMoreYTdata(finalData.nextPageToken);
       setFinalData((prevData) => ({
         ...prevData,
-        items: [...prevData.items, ...moreData.items], // Append new items
-        nextPageToken: moreData.nextPageToken, // Update nextPageToken
+        items: [...prevData.items, ...moreData.items],
+        nextPageToken: moreData.nextPageToken,
       }));
     }
+  }
+
+  if(!finalData){
+    return <h1 className="text-5xl text-center my-96 font-bold">Loading...</h1>
   }
 
   return (
@@ -31,9 +35,11 @@ export default function BhajanPage() {
       <div className="grid grid-cols-12 gap-6">
         {finalData?.items?.map((item) => (
           <BhajanCard
-            key={item.id.videoId} // You need a unique key here
+            key={item.id.videoId}
+            videoId={item.id.videoId}
             thumbnail={item.snippet.thumbnails.high.url}
             title={item.snippet.title}
+            description={item.snippet.description}
           />
         ))}
       </div>
