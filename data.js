@@ -1,4 +1,4 @@
-export const pujas = [
+//export const pujas = [     pulak dont use these image links , for any doubt contact me
   {
     "puja_id": 1,
     "puja_name": "Ganesh Chaturthi Puja",

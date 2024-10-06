@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { pujas } from "../../../../data"
+import { auth } from "@clerk/nextjs/server";
 
 
 export function generateStaticParams() {
@@ -9,6 +10,9 @@ export function generateStaticParams() {
 }
 
 export default function onePuja({ params }) {
+
+  const {userId} = auth();
+  console.log(userId)
 
   const timeSlots = [
     "6:00 AM - 9:00 AM",
@@ -63,9 +67,9 @@ export default function onePuja({ params }) {
 
         {/* Action Buttons */}
         <div className="flex flex-col py-5 gap-5">
-          <button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-full text-lg">
+          <a href="https://distinct-sturgeon-57.accounts.dev/sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3000%2F" className="w-full text-center bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-full text-lg">
             Add to Cart
-          </button>
+          </a>
           <button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-full text-lg">
             Checkout
           </button>

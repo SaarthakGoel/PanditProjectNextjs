@@ -2,9 +2,14 @@ import Midsection from '@/components/midsection/Midsection';
 import connectToDB from '@/database';
 import Head from 'next/head';
 import Image from 'next/image';
+import {auth , currentUser} from '@clerk/nextjs/server';
 
 
 export default function Home() {
+
+  const {userId} = auth();
+
+  console.log(userId)
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -26,7 +31,7 @@ export default function Home() {
           </p>
           <div className="mt-8 flex justify-center space-x-4">
             <a
-              href="#services"
+              href="/puja"
               className="bg-orange-600 text-white py-3 px-6 rounded-full font-semibold hover:bg-orange-700"
             >
               Book a Pandit

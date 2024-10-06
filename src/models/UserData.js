@@ -5,7 +5,7 @@ const UserSchema = new mongoose.Schema({
     type : String,
     required : true
   },
-  address : {
+  address : [{
     houseNo : {
       type : String,
     },
@@ -19,14 +19,17 @@ const UserSchema = new mongoose.Schema({
     state : {
       type : String,
     }
-  },
+  }],
   orders : {
-    pujaId : {
-      type : mongoose.Schema.Types.ObjectId,
-      ref : 'Puja'
-    },
+    pujaId : Number,
     orderDate : String
-  }
+  },
+  favourites : [{
+    title : String,
+    description : String,
+    videoId : String,
+    thumbnail : String
+  }]
 })
 
 const User = mongoose.models.User || mongoose.model(UserSchema , 'User');
