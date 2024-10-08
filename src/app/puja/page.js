@@ -34,7 +34,7 @@ export default function PujaPage() {
       <div className="grid grid-cols-12 gap-16 px-32 items-start">
         <div className="col-span-3 py-6 px-4 bg-white border-t-8 border-orange-600 flex gap-2">
           <div>
-            <Image src="https://d2yiyjum1sxmcg.cloudfront.net/samskara/eRpRO_gabkz_mJ1xY_Durga%20Shapashati%20copy_11zon.png" width={50} height={50} alt="okok" />
+            <Image src="/pujaListImg/7.jpg" width={50} height={50} alt="okok" />
           </div>
           <div className="flex flex-col items-start w-full">
             <span onClick={() => setCurrType("")} className="text-white text-sm font-semibold w-full rounded-md bg-orange-600 p-2 mb-6 hover:cursor-pointer">PUJA SERVICES</span>
