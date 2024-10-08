@@ -35,9 +35,9 @@ export default function onePuja({ params }) {
           <a  href={`https://distinct-sturgeon-57.accounts.dev/sign-in?redirect_url=${currUrl}`} className="w-full text-center bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-full text-lg">
             Add to Cart
           </a>
-          <button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-full text-lg">
-            Checkout
-          </button>
+          <a  href={`https://distinct-sturgeon-57.accounts.dev/sign-in?redirect_url=${currUrl}`} className="w-full text-center bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-full text-lg">
+            CheckOut
+          </a>
         </div>
       </div>
     </div>

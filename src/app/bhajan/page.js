@@ -4,6 +4,8 @@ import { fetchYTdata, fetchMoreYTdata } from "../api/fetchYTdata/route";
 import { useState, useEffect } from "react";
 
 export default function BhajanPage() {
+
+  const [content , setContent] = useState(true);
   const [finalData, setFinalData] = useState(null);
 
   useEffect(() => {
@@ -29,10 +31,9 @@ export default function BhajanPage() {
     return <h1 className="text-5xl text-center my-96 font-bold">Loading...</h1>
   }
 
-  return (
-    <div className="bg-gray-200 py-10 px-20">
-      <div>sections</div>
-      <div className="grid grid-cols-12 gap-6">
+  const display1 = (
+    <>
+    <div className="grid grid-cols-12 gap-6">
         {finalData?.items?.map((item) => (
           <BhajanCard
             key={item.id.videoId}
@@ -46,6 +47,22 @@ export default function BhajanPage() {
       <div>
         <button onClick={handleLoadMore}>Load More</button>
       </div>
+    </>
+  )
+
+  return (
+    <div className="bg-gray-200 py-10 px-20">
+      <div className="flex justify-center items-center pb-10">
+        <div onClick={() => setContent(true)} className="px-48 py-2 bg-white font-semibold">
+          Bhajans 
+        </div>
+        <div onClick={() => setContent(false)} className="px-48 py-2 bg-orange-600 font-semibold">
+          Favourites
+        </div>
+      </div>
+      {
+        content ? display1 : null
+      }
     </div>
   );
 }

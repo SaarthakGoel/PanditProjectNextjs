@@ -20,10 +20,10 @@ const UserSchema = new mongoose.Schema({
       type : String,
     }
   }],
-  orders : {
+  orders : [{
     pujaId : Number,
     orderDate : String
-  },
+  }],
   favourites : [{
     title : String,
     description : String,
@@ -32,6 +32,6 @@ const UserSchema = new mongoose.Schema({
   }]
 })
 
-const User = mongoose.models.User || mongoose.model(UserSchema , 'User');
+const User = mongoose.models.User || mongoose.model('User' , UserSchema);
 
 export default User;

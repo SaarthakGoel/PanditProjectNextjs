@@ -4,7 +4,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import {auth , currentUser} from '@clerk/nextjs/server';
 
-
 export default function Home() {
 
   const {userId} = auth();

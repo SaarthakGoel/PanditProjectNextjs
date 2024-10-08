@@ -9,6 +9,10 @@ import {
   SignedOut,
   UserButton
 } from '@clerk/nextjs'
+import SignInListener from "@/components/signInListener";
+import { Provider } from "react-redux";
+import store from "@/store";
+import ReduxProvider from "../../provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,15 +33,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Header />
-        {children}
-        <Footer />
-      </body>
-    </html>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+          <ReduxProvider children={children} />
+        </body>
+      </html>
     </ClerkProvider>
   );
 }
