@@ -7,7 +7,7 @@ export async function getUserData(userId) {
    await connectToDB();
 
    try{
-    const foundUser = await User.findOne({userId : userId});
+    const foundUser = await User.findOne({userId : userId}).lean();
 
     if(!foundUser){
       return {
@@ -27,4 +27,75 @@ export async function getUserData(userId) {
       message : 'some error occured'
     }
    }
+}
+
+
+export async function postFavourite(userId , title , description , videoId , thumbnail){
+
+  if(!userId){
+    return {
+      success : false,
+      message : 'userId not get daze'
+    }
+  }
+
+  await connectToDB();
+  const favObj = {title , description , videoId , thumbnail}
+
+  try{
+    const updatedUser = await User.findOneAndUpdate({userId : userId} , { $push : {favourites : favObj}});
+
+    if(updatedUser){
+      return {
+        success : true,
+        message : "Favourites Updated"
+      }
+    }else{
+      return {
+        success : false,
+        message : "Fav update failed"
+      }
+    }
+  }catch(err){
+    console.log(err)
+    return {
+      success : false,
+      message : 'some error occured'
+    }
+  }
+}
+
+
+export async function deleteOneFavourite(userId , videoId) {
+
+  if(!userId){
+    return {
+      success : false,
+      message : 'userId not get daze'
+    }
+  }
+
+  await connectToDB();
+
+  try{
+    const updatedUser = await User.findOneAndUpdate({userId : userId} , {$pull : {favourites : {videoId : videoId}}});
+
+    if(updatedUser){
+      return {
+        success : true,
+        message : "Favourite removed"
+      }
+    }else{
+      return {
+        success : false,
+        message : "Fav removal failed"
+      }
+    }
+  }catch(err){
+    console.log(err)
+    return {
+      success : false,
+      message : 'some error occured'
+    }
+  }
 }

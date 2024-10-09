@@ -2,11 +2,14 @@
 import BhajanCard from "@/components/bhagancard";
 import { fetchYTdata, fetchMoreYTdata } from "../api/fetchYTdata/route";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 export default function BhajanPage() {
 
-  const [content , setContent] = useState(true);
+  const [content, setContent] = useState(true);
   const [finalData, setFinalData] = useState(null);
+
+  const favArr = useSelector((state) => state.userData.favourites)
 
   useEffect(() => {
     async function fetchData() {
@@ -15,7 +18,7 @@ export default function BhajanPage() {
     }
     fetchData();
   }, []);
-
+  
   async function handleLoadMore() {
     if (finalData?.nextPageToken) {
       const moreData = await fetchMoreYTdata(finalData.nextPageToken);
@@ -27,13 +30,13 @@ export default function BhajanPage() {
     }
   }
 
-  if(!finalData){
+  if (!finalData) {
     return <h1 className="text-5xl text-center my-96 font-bold">Loading...</h1>
   }
 
   const display1 = (
     <>
-    <div className="grid grid-cols-12 gap-6">
+      <div className="grid grid-cols-12 gap-6">
         {finalData?.items?.map((item) => (
           <BhajanCard
             key={item.id.videoId}
@@ -50,18 +53,37 @@ export default function BhajanPage() {
     </>
   )
 
+  const display2 = (
+    <>
+      <div className="grid grid-cols-12 gap-6">
+        {favArr.map((item) => {
+          return (
+            <BhajanCard
+              key={item.videoId}
+              videoId={item.videoId}
+              thumbnail={item.thumbnail}
+              title={item.title}
+              description={item.description}
+            />
+          )
+        }
+        )}
+      </div>
+    </>
+  )
+
   return (
     <div className="bg-gray-200 py-10 px-20">
       <div className="flex justify-center items-center pb-10">
         <div onClick={() => setContent(true)} className="px-48 py-2 bg-white font-semibold">
-          Bhajans 
+          Bhajans
         </div>
         <div onClick={() => setContent(false)} className="px-48 py-2 bg-orange-600 font-semibold">
           Favourites
         </div>
       </div>
       {
-        content ? display1 : null
+        content ? display1 : display2
       }
     </div>
   );

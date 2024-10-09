@@ -12,6 +12,7 @@ export default function SignInListener() {
   const dispatch = useDispatch()
 
   useEffect(() => {
+    if (!session || !session.user?.id) return;
     async function signInDataSet(){
       if(session){
         console.log(session?.user?.id)
@@ -21,11 +22,7 @@ export default function SignInListener() {
       }
     }
     signInDataSet();
-  },[session])
+  },[session , dispatch])
 
-  return (
-    <div>
-
-    </div>
-  )
+  return null
 }
