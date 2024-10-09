@@ -10,6 +10,8 @@ import { useDispatch } from "react-redux";
 
 export default function BhajanCard({ videoId, thumbnail, title, description }) {
 
+  const encodedThumb = encodeURIComponent(thumbnail);
+
   const [favIconClass , setFavIconClass] = useState({color : 'white' , fontSize : '28px'});
   const [isFav , setIsFav] = useState(false)
 
@@ -43,7 +45,7 @@ export default function BhajanCard({ videoId, thumbnail, title, description }) {
 
   return (
     <div className="col-span-3 flex flex-col justify-center items-center bg-orange-600 text-white p-4 rounded-lg">
-      <Image src={thumbnail} onClick={() => router.push(`/bhajan/${videoId}/${title}/${description}/`)} loading="lazy"  width={480} height={360} alt="" className="rounded-md mb-2 cursor-pointer" />
+      <Image src={thumbnail} onClick={() => router.push(`/bhajan/${videoId}/${encodedThumb}/${title}/${description}/`)} loading="lazy"  width={480} height={360} alt="" className="rounded-md mb-2 cursor-pointer" />
       <div className="flex gap-4 justify-between">
       <span className="text-lg text-center font-semibold">{title}</span>
       <button disabled={!userId} onClick={handleAddToFav} className="disabled:opacity-50"><FaHeart style={favIconClass} /></button>
