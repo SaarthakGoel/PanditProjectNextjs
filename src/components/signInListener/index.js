@@ -15,9 +15,7 @@ export default function SignInListener() {
     if (!session || !session.user?.id) return;
     async function signInDataSet(){
       if(session){
-        console.log(session?.user?.id)
         const data = await getUserData(session.user.id)
-        console.log(data)
         dispatch(setUserData(data.data))
       }
     }

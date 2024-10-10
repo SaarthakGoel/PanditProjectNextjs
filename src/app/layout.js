@@ -1,7 +1,5 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/header/Header";
-import Footer from "@/components/footer/Footer";
 import {
   ClerkProvider,
   SignInButton,
@@ -9,9 +7,6 @@ import {
   SignedOut,
   UserButton
 } from '@clerk/nextjs'
-import SignInListener from "@/components/signInListener";
-import { Provider } from "react-redux";
-import store from "@/store";
 import ReduxProvider from "../../provider";
 
 const geistSans = localFont({
@@ -36,7 +31,9 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <ReduxProvider children={children} />
+          <ReduxProvider>
+            {children}
+          </ReduxProvider>
         </body>
       </html>
     </ClerkProvider>

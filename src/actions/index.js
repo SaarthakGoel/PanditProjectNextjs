@@ -99,3 +99,75 @@ export async function deleteOneFavourite(userId , videoId) {
     }
   }
 }
+
+
+
+export async function postCart(userId , pujaId , date , time){
+
+  if(!userId){
+    return {
+      success : false,
+      message : 'userId not get daze'
+    }
+  }
+
+  await connectToDB();
+  const cartObj = {pujaId , date , time};
+
+  try{
+    const updatedUser = await User.findOneAndUpdate({userId : userId} , { $push : {cart : cartObj}});
+
+    if(updatedUser){
+      return {
+        success : true,
+        message : "cart Updated"
+      }
+    }else{
+      return {
+        success : false,
+        message : "cart update failed"
+      }
+    }
+  }catch(err){
+    console.log(err)
+    return {
+      success : false,
+      message : 'some error occured'
+    }
+  }
+}
+
+
+export async function deleteOneCart(userId , pujaId) {
+
+  if(!userId){
+    return {
+      success : false,
+      message : 'userId not get daze'
+    }
+  }
+
+  await connectToDB();
+
+  try{
+    const updatedUser = await User.findOneAndUpdate({userId : userId} , {$pull : {cart : {pujaId : pujaId}}});
+
+    if(updatedUser){
+      return {
+        success : true,
+        message : "cart removed"
+      }
+    }else{
+      return {
+        success : false,
+        message : "cart removal failed"
+      }
+    }
+  }catch(err){
+    console.log(err)
+    return {
+      success : false,
+      message : 'some error occured'
+    }
+  }
+}

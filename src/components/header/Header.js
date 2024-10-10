@@ -28,7 +28,7 @@ export default function Header() {
         <ul className="flex justify-center">
           <Link href='/puja'><li className=" headerli mx-2 px-24 py-2 text-lg font-semibold text-orange-600 border-2 border-x-gray-700 border-y-0">Puja Services</li></Link>
           <Link href='/bhajan'><li className=" headerli mx-2 px-24 py-2 text-lg font-semibold text-orange-600 border-2 border-x-gray-700 border-y-0">Bhajan Services</li></Link>
-          <Link href='/'><li className=" headerli mx-2 px-24 py-2 text-lg font-semibold text-orange-600 border-2 border-x-gray-700 border-y-0">Consulting Services</li></Link>
+          <Link href='/cart'><li className=" headerli mx-2 px-24 py-2 text-lg font-semibold text-orange-600 border-2 border-x-gray-700 border-y-0">Consulting Services</li></Link>
           <Link href='/'><li className=" headerli mx-2 px-24 py-2 text-lg font-semibold text-orange-600 border-2 border-x-gray-700 border-y-0">Temple Services</li></Link>
         </ul>
       </div>

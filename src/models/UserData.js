@@ -9,7 +9,6 @@ const UserSchema = new mongoose.Schema({
     houseNo : {
       type : String,
     },
-    landmark : String,
     society : {
       type : String,
     },
@@ -22,7 +21,13 @@ const UserSchema = new mongoose.Schema({
   }],
   orders : [{
     pujaId : Number,
-    orderDate : String
+    date : String,
+    time : String
+  }],
+  cart : [{
+    pujaId : Number,
+    date : String,
+    time : String
   }],
   favourites : [{
     title : String,

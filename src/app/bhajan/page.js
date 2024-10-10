@@ -47,8 +47,8 @@ export default function BhajanPage() {
           />
         ))}
       </div>
-      <div>
-        <button onClick={handleLoadMore}>Load More</button>
+      <div className="flex justify-center items-center p-2">
+        <button className="rounded-full bg-orange-600 p-3" onClick={handleLoadMore}>Load More</button>
       </div>
     </>
   )
