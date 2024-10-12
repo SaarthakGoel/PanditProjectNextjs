@@ -6,23 +6,21 @@ const UserSchema = new mongoose.Schema({
     required : true
   },
   address : [{
-    houseNo : {
+    name : {
       type : String,
+      unique : true
     },
-    society : {
-      type : String,
-    },
-    city : {
-      type : String,
-    },
-    state : {
-      type : String,
-    }
+    selected : Boolean,
+    street : String,
+    city : String,
+    state : String,
+    postalCode : String,
+    country : String
   }],
   orders : [{
     pujaId : Number,
     date : String,
-    time : String
+    time : String,
   }],
   cart : [{
     pujaId : Number,

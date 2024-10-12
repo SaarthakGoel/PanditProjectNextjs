@@ -46,9 +46,35 @@ const userDataSlice = createSlice({
       state.cart = arr;
       console.log(state.cart)
       console.log('redux cart item removed')
+    },
+    addAddress(state , action){
+      const {name , street , city , state : state1 , country , postalCode} = action.payload;
+      state.address = [...state.address , {name , street , city , selected : false , state : state1 , country , postalCode}]
+      console.log(state.address);
+      console.log('redux address saved')
+    },
+    removeAddress(state , action){
+      const {name} = action.payload;
+      const addArr = state.address.filter((item) => item.name !== name)
+      state.address = addArr
+      console.log(state.address)
+      console.log('Redux removed Address')
+    },
+    setSelected(state , action){
+      const {selectedAddress} = action.payload;
+      const arr = state.address.map((item) => {
+        if (item.name === selectedAddress) {
+          return { ...item, selected: true };  // Return modified object
+        } else {
+          return { ...item, selected: false };  // Ensure we return for all items
+        }
+      });
+      state.address = arr;
+      console.log(state.address)
+      console.log('Redux Address selected')
     }
   }
 })
 
-export const {setUserData , addFavourite , removeFavourite , addToCart , removeFromCart} = userDataSlice.actions;
+export const {setUserData , addFavourite , removeFavourite , addToCart , removeFromCart , addAddress , removeAddress , setSelected} = userDataSlice.actions;
 export default userDataSlice.reducer;

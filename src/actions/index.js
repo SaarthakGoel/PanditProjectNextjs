@@ -171,3 +171,122 @@ export async function deleteOneCart(userId , pujaId) {
     }
   }
 }
+
+
+export async function saveAddress({userId , name , street , city , state , country , postalCode }){
+
+  if(!userId){
+    return {
+      success : false,
+      message : 'userId not get daze'
+    }
+  }
+
+  await connectToDB();
+  const addObj = {
+    name , selected : false , street , city , state , postalCode , country
+  }
+
+  console.log(addObj)
+
+  try{
+    const updatedUser = await User.findOneAndUpdate({userId : userId} ,{$push : {address : addObj}})
+
+    if(updatedUser){
+      return {
+        success : true,
+        message : "address saved"
+      }
+    }else{
+      return {
+        success : false,
+        message : "address saving failed"
+      }
+    }
+  }catch(err){
+    console.log(err)
+    return {
+      success : false,
+      message : 'some error occured'
+    }
+  }
+
+}
+
+
+export async function deleteAddress({userId , name}) {
+  if(!userId){
+    return {
+      success : false,
+      message : 'userId not get daze'
+    }
+  }
+
+  await connectToDB();
+
+  try{
+    const updatedUser = await User.findOneAndUpdate({userId : userId} , {$pull : {address : {name : name}}});
+
+    if(updatedUser){
+      return {
+        success : true,
+        message : "address removed"
+      }
+    }else{
+      return {
+        success : false,
+        message : "address delete failed"
+      }
+    }
+
+  }catch(err){
+    console.log(err)
+    return {
+      success : false,
+      message : 'some error occured'
+    }
+  }
+}
+
+
+export async function saveSelected({userId , selectedAddress}) {
+  if(!userId){
+    return {
+      success : false,
+      message : 'userId not get daze'
+    }
+  }
+
+  await connectToDB();
+
+  try{
+    const updatedUser = await User.findOneAndUpdate(
+      {userId , "address.selected" : true},
+      {$set : { "address.$.selected": false } }
+    )
+
+    const updatedUser2 = await User.findOneAndUpdate(
+      {userId , "address.name" : selectedAddress},
+      {$set : { "address.$.selected": true }}
+    );
+
+    if(updatedUser2){
+      return {
+        success : true,
+        message : "select successfull"
+      }
+    }else{
+      return {
+        success : false,
+        message : "Select failed"
+      }
+    }
+
+  }catch(err){
+    console.log(err)
+    return {
+      success : false,
+      message : 'some error occured'
+    }
+  }
+}
