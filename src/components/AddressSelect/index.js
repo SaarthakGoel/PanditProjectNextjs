@@ -56,7 +56,8 @@ export default function MapWithAddressSelection() {
       return;
     }
     dispatch(addAddress({name , street , city , state , country , postalCode}));
-    await saveAddress({userId , name , street , city , state , country , postalCode});
+    const res = await saveAddress({userId , name , street , city , state , country , postalCode});
+    console.log(res.message);
   }
 
 

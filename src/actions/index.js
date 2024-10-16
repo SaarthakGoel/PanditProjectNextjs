@@ -191,6 +191,8 @@ export async function saveAddress({userId , name , street , city , state , count
 
   try{
     const updatedUser = await User.findOneAndUpdate({userId : userId} ,{$push : {address : addObj}})
+    
+    console.log(updatedUser)
 
     if(updatedUser){
       return {

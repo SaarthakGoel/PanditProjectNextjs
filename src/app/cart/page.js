@@ -5,6 +5,7 @@ import { useSelector } from "react-redux"
 import { pujas } from "../../../data";
 import { useRouter } from "next/navigation";
 import { useSession } from "@clerk/nextjs";
+import { loadStripe } from "@stripe/stripe-js";
 
 export default function CartPage() {
 
@@ -12,7 +13,7 @@ export default function CartPage() {
 
   const router = useRouter();
   const addresses = useSelector((state) => state.userData.address);
-  const {session} = useSession();
+  const { session } = useSession();
   const userId = session?.user?.id;
 
   const currUrl = encodeURIComponent('http://localhost:3000/cart/address')
@@ -29,19 +30,49 @@ export default function CartPage() {
 
   let total = subtotal + tax;
 
-  function selectOrChangeAddress(){
-    if(userId) {
+  function selectOrChangeAddress() {
+    if (userId) {
       router.push('/cart/address')
-    }else{
+    } else {
       router.push(`https://distinct-sturgeon-57.accounts.dev/sign-in?redirect_url=${currUrl}`)
+    }
+  }
+
+
+  // stipe logic
+  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+
+  let items = [];
+  
+  cartArr.map((item) => {
+    items = [...items , pujas[item.pujaId]]
+  })
+
+  // Redirect to login if not logged in
+  async function handleCheckout() {
+    if (!userId) {
+      router.replace(`https://distinct-sturgeon-57.accounts.dev/sign-in?redirect_url=${currUrl}`);
+    } else {
+       const res = await fetch('api/checkout' , {
+        method : 'POST',
+        headers : {
+          'content-Type' : 'application/json',
+        },
+        body : JSON.stringify(items),
+       });
+
+       const {id} = await res.json();
+
+       const stripe = await stripePromise;
+       await stripe.redirectToCheckout({sessionId : id});
     }
   }
 
   useEffect(() => {
     addresses.map((item) => {
-      if(item.selected) setAddressSelected(true)
+      if (item.selected) setAddressSelected(true)
     })
-  },[addresses])
+  }, [addresses])
 
   const content1 = (
     <div className="h-[60vh] flex justify-center items-center">
@@ -88,7 +119,7 @@ export default function CartPage() {
 
           {/* Checkout Button */}
           <div className="mt-6">
-            <button className="w-full py-3 bg-orange-600 text-white font-bold rounded-lg hover:bg-orange-700 transition-all duration-200">
+            <button onClick={handleCheckout} className="w-full py-3 bg-orange-600 text-white font-bold rounded-lg hover:bg-orange-700 transition-all duration-200">
               Proceed to Checkout
             </button>
           </div>
@@ -114,7 +145,7 @@ export default function CartPage() {
                     </div>
                   </div>
                 )
-              }else{
+              } else {
                 return null
               }
             })

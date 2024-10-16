@@ -62,12 +62,6 @@ export default function onePuja({ params }) {
   }
 
 
-  // Redirect to login if not logged in
-  function handleCheckout() {
-    router.replace(`https://distinct-sturgeon-57.accounts.dev/sign-in?redirect_url=${currUrl}`);
-  }
-
-
   // Set the initial state based on whether the item is already in the cart
   useEffect(() => {
     if (cartArr?.some((item) => item.pujaId === pujaIdInt)) {
@@ -120,9 +114,6 @@ export default function onePuja({ params }) {
         <div className="flex flex-col py-5 gap-5">
           <button disabled={date === ""} onClick={handleAddToCart} className="w-full text-center bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-full text-lg disabled:opacity-50">
             {buttonText}
-          </button>
-          <button disabled={date === ""} onClick={handleCheckout} className="w-full text-center bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-full text-lg disabled:opacity-50">
-            CheckOut
           </button>
         </div>
       </div>

@@ -22,7 +22,7 @@ export default function Header() {
         </SignedIn>
       </div>
       <div className="flex justify-center border-b-slate-400 border-2">
-        <Link href='/'><Image src='/img/navsamskara.svg' className=" h-24 sm:h-28" width={350} height={100} alt='logo' /></Link>
+        <Link href='/'><Image src='/img/navsamskara.svg' className=" h-24 sm:h-28" width={250} height={100} alt='logo' /></Link>
       </div>
       <div className="bg-slate-100 py-2 drop-shadow-lg">
         <ul className="flex justify-center">

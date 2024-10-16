@@ -6,10 +6,7 @@ const UserSchema = new mongoose.Schema({
     required : true
   },
   address : [{
-    name : {
-      type : String,
-      unique : true
-    },
+    name : String,
     selected : Boolean,
     street : String,
     city : String,
@@ -18,9 +15,15 @@ const UserSchema = new mongoose.Schema({
     country : String
   }],
   orders : [{
-    pujaId : Number,
-    date : String,
-    time : String,
+    orderId : [{
+      pujaId : Number,
+      date : String,
+      time : String,
+    }],
+    transactionId : String,
+    nowDate : String,
+    nowTime : String,
+    totalAmount : Number
   }],
   cart : [{
     pujaId : Number,
