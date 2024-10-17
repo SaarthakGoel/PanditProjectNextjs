@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { removeFromCart } from "@/store/slice/userData-slice";
 import { useSession } from "@clerk/nextjs";
 import { deleteOneCart } from "@/actions";
+import Animate2 from "../animations/animation2";
 
 
 export default function CartOrder ({pujaId , date , time}) {
@@ -23,7 +24,7 @@ export default function CartOrder ({pujaId , date , time}) {
   }
 
   return (
-    <div className="flex mb-6 w-full max-w-4xl">
+    <Animate2 cssClass={`flex mb-6 w-full max-w-4xl`}>
     <Image
       className="rounded-l-md"
       src={pujas[pujaId].image}
@@ -57,6 +58,6 @@ export default function CartOrder ({pujaId , date , time}) {
         </p>
       </div>
     </div>
-  </div>
+  </Animate2>
   )
 }

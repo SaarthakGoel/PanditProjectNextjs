@@ -7,6 +7,9 @@ import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCart } from "@/store/slice/userData-slice";
 import { deleteOneCart, postCart } from "@/actions";
+import Animate5 from "@/components/animations/animation5";
+import Animate3 from "@/components/animations/animation3";
+import Animate6 from "@/components/animations/animate6";
 
 export default function OnePuja({ params }) {
   
@@ -26,7 +29,6 @@ export default function OnePuja({ params }) {
 
   const { pujaId } = params;
   const pujaIdInt = parseInt(pujaId)
-  const currUrl = encodeURIComponent(`http://localhost:3000/puja/${pujaId}`);
   const item = pujas[pujaIdInt - 1];
 
 
@@ -76,17 +78,17 @@ export default function OnePuja({ params }) {
 
   return (
     <div className="px-20 py-10 bg-gray-200 flex justify-center gap-16">
-      <div className="">
-        <div className="flex flex-col justify-center items-center rounded-md bg-white p-5 mb-5 shadow-md">
+      <div>
+        <Animate6 cssClass={`flex flex-col justify-center items-center rounded-md bg-white p-5 mb-5 shadow-md`}>
           <h1 className="text-4xl font-semibold p-4 text-orange-700">{item.puja_name}</h1>
           <p className="text-gray-500 text-md">{item.description}</p>
-        </div>
-        <div className="flex justify-center rounded-md bg-white py-5 shadow-lg">
+        </Animate6>
+        <Animate5 cssClass={`flex justify-center rounded-md bg-white py-5 shadow-lg`}>
           <Image className="" src={item.image} width={500} height={500} />
-        </div>
+        </Animate5>
       </div>
 
-      <div className="bg-white py-10 px-20 rounded-md shadow-lg">
+      <Animate3 cssClass={`bg-white py-10 px-20 rounded-md shadow-lg`}>
         {/* Price */}
         <div className="text-4xl font-semibold py-5 text-orange-700 mb-5">Price: ₹{item.price}</div>
 
@@ -116,7 +118,7 @@ export default function OnePuja({ params }) {
             {buttonText}
           </button>
         </div>
-      </div>
+      </Animate3>
     </div>
   );
 }

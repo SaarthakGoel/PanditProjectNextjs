@@ -6,6 +6,7 @@ import { pujas } from "../../../data";
 import { useRouter } from "next/navigation";
 import { useSession } from "@clerk/nextjs";
 import { loadStripe } from "@stripe/stripe-js";
+import Animate3 from "@/components/animations/animation3";
 
 export default function CartPage() {
 
@@ -81,10 +82,10 @@ export default function CartPage() {
   )
 
   const content2 = (
-    <div className="grid grid-cols-12 bg-gray-200 pt-10 pb-24">
+    <div className="grid grid-cols-12 bg-gray-200 pb-24">
       <div className="col-span-1"></div>
       <div className=" col-span-6">
-        <p className="text-5xl font-semibold pb-10">Cart</p>
+        <p className="text-5xl pt-10 font-semibold pb-10">Cart</p>
         {
           cartArr.map((item) => {
             return (
@@ -95,7 +96,7 @@ export default function CartPage() {
       </div>
       <div className="col-span-1"></div>
       <div className="col-span-3">
-        <div className="bg-white mt-20 p-6 shadow-lg rounded-lg">
+        <Animate3 cssClass={`bg-white mt-20 p-6 shadow-lg rounded-lg`}>
           {/* Summary Header */}
           <div className="bg-orange-500 text-white text-center py-4 rounded-t-lg">
             <h2 className="text-2xl font-bold">Summary</h2>
@@ -123,8 +124,8 @@ export default function CartPage() {
               Proceed to Checkout
             </button>
           </div>
-        </div>
-        <div className="flex gap-4 justify-center items-center my-5">
+        </Animate3>
+        <Animate3 cssClass={`flex gap-4 justify-center items-center my-5`}>
           {
             addresses.map((item) => {
               if (item.selected === true) {
@@ -153,7 +154,7 @@ export default function CartPage() {
           <button onClick={selectOrChangeAddress} className=" rounded-lg bg-orange-500 px-4 py-3 text-white font-semibold hover:bg-orange-700 transition-all">
             {addressSelected ? 'Change Address' : 'Select Address'}
           </button>
-        </div>
+        </Animate3>
       </div>
       <div className="col-span-1"></div>
     </div>

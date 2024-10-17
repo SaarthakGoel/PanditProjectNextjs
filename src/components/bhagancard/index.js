@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { FaHeart } from 'react-icons/fa';
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import FadeIn from "../animations/animationComp";
+import Animate4 from "../animations/animate4";
 
 export default function BhajanCard({ videoId, thumbnail, title, description }) {
 
@@ -36,6 +38,14 @@ export default function BhajanCard({ videoId, thumbnail, title, description }) {
     }
   }
 
+  function handleThumbnailClick(){
+    router.push(`/bhajan/${videoId}/${encodedThumb}/${title}/${description}/`)
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
   useEffect(() => {
     if (favArr.some((fav) => fav.videoId === videoId)) {
       setIsFav(true);
@@ -44,12 +54,12 @@ export default function BhajanCard({ videoId, thumbnail, title, description }) {
   },[favArr]);
 
   return (
-    <div className="col-span-3 flex flex-col justify-center items-center bg-orange-600 text-white p-4 rounded-lg">
-      <Image src={thumbnail} onClick={() => router.push(`/bhajan/${videoId}/${encodedThumb}/${title}/${description}/`)} loading="lazy"  width={480} height={360} alt="" className="rounded-md mb-2 cursor-pointer" />
+    <FadeIn cssClass={`col-span-3 flex flex-col justify-center items-center bg-orange-600 text-white p-4 rounded-lg`}>
+      <Image src={thumbnail} onClick={handleThumbnailClick} loading="lazy"  width={480} height={360} alt="" className="rounded-md mb-2 cursor-pointer" />
       <div className="flex gap-4 justify-between">
       <span className="text-lg text-center font-semibold">{title}</span>
       <button disabled={!userId} onClick={handleAddToFav} className="disabled:opacity-50"><FaHeart style={favIconClass} /></button>
       </div>
-    </div>
+    </FadeIn>
   )
 }

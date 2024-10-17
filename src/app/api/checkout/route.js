@@ -28,7 +28,7 @@ export async function POST(req) {
         },
         quantity: item.quantity || 1,
       })),
-      success_url: `${req.headers.get('origin')}/success?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${req.headers.get('origin')}/order`,
       cancel_url: `${req.headers.get('origin')}/cart`,
       client_reference_id : userId
     });
