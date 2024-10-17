@@ -3,11 +3,35 @@ import { pujas } from "../../../data";
 import PujaCard from "@/components/pujacard/pujaCard";
 import Image from "next/image";
 import { useState } from "react";
+import { FaAngleDoubleRight, FaAngleDoubleLeft } from 'react-icons/fa';
 
 export default function PujaPage() {
 
   const [currType, setCurrType] = useState("");
-  const [currSearch , setCurrSearch] = useState("");
+  const [currSearch, setCurrSearch] = useState("");
+
+  const [pageNo, setPageNo] = useState(1);
+
+  const pujas1 = pujas.filter((item) => item.puja_id <= 9)
+  const pujas2 = pujas.filter((item) => item.puja_id >= 10 && item.puja_id <= 18)
+  const pujas3 = pujas.filter((item) => item.puja_id >= 19 && item.puja_id <= 27)
+  const pujas4 = pujas.filter((item) => item.puja_id >= 28)
+
+  function handleLeft() {
+    setPageNo(pageNo - 1)
+    window.scrollTo({
+      top: 0,     // Scroll to top
+      behavior: "smooth" // For smooth scrolling
+    });
+  }
+
+  function handleRigth() {
+    setPageNo(pageNo + 1)
+    window.scrollTo({
+      top: 0,     // Scroll to top
+      behavior: "smooth" // For smooth scrolling
+    });
+  }
 
   const pujaTypes = ["Marriage",
     "Birth Related",
@@ -18,9 +42,33 @@ export default function PujaPage() {
     "Path [Recitation]",
     "Dosha Nivaran Havan & Jaap"];
 
-    const handleTypeChange = (onetype) => {
-      setCurrType(onetype);
-    }
+  const handleTypeChange = (onetype) => {
+    setCurrType(onetype);
+  }
+
+  const content = (pujas) => {
+    return (
+      currType === "" ?
+        pujas.map((puja) => {
+          if (puja.puja_name.toLowerCase().includes(currSearch.toLowerCase())) {
+            return (
+              <PujaCard key={puja.puja_id} item={puja} />
+            )
+          } else {
+            return null
+          }
+        }) :
+        pujas.filter((puja) => puja.type === currType).map((puja) => {
+          if (puja.puja_name.toLowerCase().includes(currSearch.toLowerCase())) {
+            return (
+              <PujaCard key={puja.puja_id} item={puja} />
+            )
+          } else {
+            return null
+          }
+        })
+    )
+  }
 
   return (
     <div className="bg-[#e5e5e5] pb-24">
@@ -40,7 +88,7 @@ export default function PujaPage() {
             <span onClick={() => setCurrType("")} className="text-white text-sm font-semibold w-full rounded-md bg-orange-600 p-2 mb-6 hover:cursor-pointer">PUJA SERVICES</span>
             {
               pujaTypes.map((onetype) => {
-                if(currType === onetype){
+                if (currType === onetype) {
                   return (
                     <button key={""} className="my-1 p-2 text-left w-full rounded-md font-semibold bg-gray-200 border-[0.5px] border-orange-600 text-orange-600" onClick={() => handleTypeChange(onetype)}>{onetype}</button>
                   )
@@ -53,30 +101,22 @@ export default function PujaPage() {
           </div>
         </div>
         <div className="col-span-9 grid grid-cols-12 gap-8">
-          {
-            currType === "" ? 
-            pujas.map((puja) => {
-              if(puja.puja_name.toLowerCase().includes(currSearch.toLowerCase())){
-                return (
-                  <PujaCard key={puja.puja_id} item={puja} />
-                )
-              }else{
-                return null
-              }
-            }) :
-            pujas.filter((puja) => puja.type === currType).map((puja) => {
-              if(puja.puja_name.toLowerCase().includes(currSearch.toLowerCase())){
-                return (
-                  <PujaCard key={puja.puja_id} item={puja} />
-                )
-              }else{
-                return null
-              }
-            })
-          }
+          {pageNo === 1 && content(pujas1)}
+          {pageNo === 2 && content(pujas2)}
+          {pageNo === 3 && content(pujas3)}
+          {pageNo === 4 && content(pujas4)}
+          <div className="col-span-12">
+            <div className="flex justify-center items-center">
+            <button className="rounded-md bg-orange-600 p-2 mr-2" disabled={pageNo === 1} onClick={handleLeft}><FaAngleDoubleLeft size={20} color="white" /></button>
+            <span className={pageNo === 1 ? "bg-orange-600 text-white py-1 px-2" : "bg-white py-1 px-2 border-[1px] border-gray-500"}>1</span>
+            <span className={pageNo === 2 ? "bg-orange-600 text-white py-1 px-2" : "bg-white py-1 px-2 border-[1px] border-gray-500"}>2</span>
+            <span className={pageNo === 3 ? "bg-orange-600 text-white py-1 px-2" : "bg-white py-1 px-2 border-[1px] border-gray-500"}>3</span>
+            <span className={pageNo === 4 ? "bg-orange-600 text-white py-1 px-2" : "bg-white py-1 px-2 border-[1px] border-gray-500"}>4</span>
+            <button className="rounded-md bg-orange-600 p-2 ml-2" disabled={pageNo === 4} onClick={handleRigth}><FaAngleDoubleRight size={20} color="white" /></button>
+            </div>
+          </div>
         </div>
       </div>
-
     </div>
   )
 }

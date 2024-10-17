@@ -9,6 +9,14 @@ export default function Midsection() {
 
   const router = useRouter()
 
+  function handleBhajanPageRoute(){
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+    router.push('/bhajan')
+  }
+
   const SlideInSectionLeft = ({ children }) => {
     const ref = useRef(null);
 
@@ -113,7 +121,7 @@ export default function Midsection() {
               Let us help you organize cultural & community activities. Choose from a spate of curated events, get great ideas for social activities including contributions to the lesser fortunate.
             </p>
             <div className='flex justify-center pt-4'>
-              <button onClick={() => router.push('bhajan')} className='text-xl px-5 py-2 bg-orange-600 rounded-full text-white'>Browse Collection</button>
+              <button onClick={handleBhajanPageRoute} className='text-xl px-5 py-2 bg-orange-600 rounded-full text-white'>Browse Collection</button>
             </div>
           </div>
         </SlideInSectionLeft>

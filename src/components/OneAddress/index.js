@@ -42,7 +42,7 @@ export default function OneAddress() {
 
       <div className="grid grid-cols-12">
         {addArr.map((address) => (
-          <div
+          <div key={address.name}
             className={`p-4 m-2 col-span-6 border rounded-lg cursor-pointer transition-all ${
               selectedAddress === address.name
                 ? "bg-orange-100 border-orange-500 shadow-md"

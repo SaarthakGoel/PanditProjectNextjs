@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCart } from "@/store/slice/userData-slice";
 import { deleteOneCart, postCart } from "@/actions";
 
-export default function onePuja({ params }) {
+export default function OnePuja({ params }) {
   
 
   const [date, setDate] = useState("");
@@ -75,7 +75,7 @@ export default function onePuja({ params }) {
 
 
   return (
-    <div className="p-20 bg-gray-200 flex justify-center gap-16">
+    <div className="px-20 py-10 bg-gray-200 flex justify-center gap-16">
       <div className="">
         <div className="flex flex-col justify-center items-center rounded-md bg-white p-5 mb-5 shadow-md">
           <h1 className="text-4xl font-semibold p-4 text-orange-700">{item.puja_name}</h1>
@@ -88,7 +88,7 @@ export default function onePuja({ params }) {
 
       <div className="bg-white py-10 px-20 rounded-md shadow-lg">
         {/* Price */}
-        <div className="text-4xl font-semibold text-orange-700 mb-5">Price: ₹{item.price}</div>
+        <div className="text-4xl font-semibold py-5 text-orange-700 mb-5">Price: ₹{item.price}</div>
 
         <div className="mb-5">
           <label className="block text-lg text-gray-600 mb-2">Select Date:</label>

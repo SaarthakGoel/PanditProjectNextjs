@@ -88,7 +88,7 @@ export default function CartPage() {
         {
           cartArr.map((item) => {
             return (
-              <CartOrder pujaId={item.pujaId} date={item.date} time={item.time} />
+              <CartOrder key={item.pujaId} pujaId={item.pujaId} date={item.date} time={item.time} />
             )
           })
         }
@@ -129,7 +129,7 @@ export default function CartPage() {
             addresses.map((item) => {
               if (item.selected === true) {
                 return (
-                  <div className="space-y-4">
+                  <div key={item.name} className="space-y-4">
                     <div
                       className={`p-4 border rounded-lg cursor-pointer transition-all bg-orange-100 border-orange-500 shadow-md`}>
                       {/* Name of Address */}

@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image"
 import Link from "next/link"
 import '../midsection/Midsection.css';
@@ -7,9 +8,12 @@ import {
   SignedOut,
   UserButton
 } from '@clerk/nextjs'
+import { useSelector } from "react-redux";
 
 
 export default function Header() {
+
+  const cart = useSelector((state) => state.userData.cart)
 
   return (
     <div className="fixed top-0 z-10 w-full bg-white">
@@ -28,8 +32,8 @@ export default function Header() {
         <ul className="flex justify-center">
           <Link href='/puja'><li className=" headerli mx-2 px-24 py-2 text-lg font-semibold text-orange-600 border-2 border-x-gray-700 border-y-0">Puja Services</li></Link>
           <Link href='/bhajan'><li className=" headerli mx-2 px-24 py-2 text-lg font-semibold text-orange-600 border-2 border-x-gray-700 border-y-0">Bhajan Services</li></Link>
-          <Link href='/cart'><li className=" headerli mx-2 px-24 py-2 text-lg font-semibold text-orange-600 border-2 border-x-gray-700 border-y-0">Consulting Services</li></Link>
-          <Link href='/'><li className=" headerli mx-2 px-24 py-2 text-lg font-semibold text-orange-600 border-2 border-x-gray-700 border-y-0">Temple Services</li></Link>
+          <Link href='/cart'><li className=" headerli mx-2 px-24 py-2 text-lg font-semibold text-orange-600 border-2 border-x-gray-700 border-y-0">Cart </li></Link>
+          <Link href='/'><li className=" headerli mx-2 px-24 py-2 text-lg font-semibold text-orange-600 border-2 border-x-gray-700 border-y-0">Order History</li></Link>
         </ul>
       </div>
     </div>
