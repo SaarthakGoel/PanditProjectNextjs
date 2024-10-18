@@ -72,7 +72,7 @@ export default function Home() {
         <h3 className="mt-4 text-xl font-semibold text-gray-800">
           Select Puja
         </h3>
-        <p className="mt-2 text-gray-600">
+        <p className="mt-2 text-gray-600 text-center">
           Choose from a wide variety of puja services for all occasions.
         </p>
       </div>
@@ -85,7 +85,7 @@ export default function Home() {
         <h3 className="mt-4 text-xl font-semibold text-gray-800">
           Book Pandit
         </h3>
-        <p className="mt-2 text-gray-600">
+        <p className="mt-2 text-gray-600 text-center">
           Schedule the puja by booking a qualified pandit.
         </p>
       </div>
@@ -98,7 +98,7 @@ export default function Home() {
         <h3 className="mt-4 text-xl font-semibold text-gray-800">
           Get Puja Done
         </h3>
-        <p className="mt-2 text-gray-600">
+        <p className="mt-2 text-gray-600 text-center">
           Our pandits will guide you through the puja with ease.
         </p>
       </div>

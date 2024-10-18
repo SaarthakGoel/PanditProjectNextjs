@@ -5,6 +5,9 @@ import ReactPlayer from "react-player";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteOneFavourite, postFavourite } from "@/actions";
 import { addFavourite, removeFavourite } from "@/store/slice/userData-slice";
+import Animate6 from "@/components/animations/animate6";
+import Animate3 from "@/components/animations/animation3";
+import './page.css';
 
 export default function OnePage({ params }) {
 
@@ -41,6 +44,8 @@ export default function OnePage({ params }) {
   const [isClient, setIsClient] = useState(false);
   const [buttonText , setButtonText] = useState('Add to Favourites')
 
+  const [wid , setWid] = useState(window.innerWidth)
+
   useEffect(() => {
     setIsClient(true);
     if (bhajanId[3]) {
@@ -58,21 +63,22 @@ export default function OnePage({ params }) {
     }
   },[favArr]);
 
-
   return (
-    <div className="px-20 py-10 bg-gray-200">
-      <div className="flex gap-10 justify-center items-start">
-        <div className="bg-white p-6 shadow-lg rounded-md">
+    <div className=" px-10 md:px-20 py-10 bg-gray-200">
+      <div className="flex flex-col xl:flex-row gap-10 justify-center items-start">
+        <Animate6 cssClass={`flex justify-center items-center w-full`}>
           {isClient && (
             <ReactPlayer
               url={`https://www.youtube.com/watch?v=${videoId}`}
-              width={800} height={450}
+              width={wid < 870 ? 600 : 700}
+              height={wid < 870 ? 350 : 400}
+              className=" md:h-40rem md:w-96 lg:h-full lg:w-full"
               controls
               playing
             />
           )}
-        </div>
-        <div>
+        </Animate6>
+        <Animate3>
           <div className="bg-white shadow-lg p-4 rounded-md">
             <h1 className="text-4xl font-semibold">{title}</h1>
             <p className="text-gray-500 p-6">{description}</p>
@@ -83,7 +89,7 @@ export default function OnePage({ params }) {
           <div className="flex justify-center mt-10">
             <button onClick={() => router.push('/bhajan')} className="bg-orange-600 text-white py-3 px-6 rounded-full font-semibold hover:bg-orange-700">Go Back</button>
           </div>
-        </div>
+        </Animate3>
       </div>
     </div>
   );

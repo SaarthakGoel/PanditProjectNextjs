@@ -72,18 +72,18 @@ export default function PujaPage() {
 
   return (
     <div className="bg-[#e5e5e5] pb-24">
-      <div className="flex justify-around items-center">
+      <div className="flex flex-col justify-around items-center md:flex-row">
         <div>
-          <h1 className="text-4xl text-orange-600 m-6 py-10 ">Puja Services</h1>
+          <h1 className="text-4xl text-orange-600 mx-6 py-10 md:m-6 ">Puja Services</h1>
         </div>
         
         <div>
-          <input type="text" value={currSearch} onChange={(e) => setCurrSearch(e.target.value)} placeholder="Search" alt="search bar" className="border-[1px] border-gray-400 h-10 px-6 py-4 min-w-72 rounded-md transition duration-300 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600 focus:shadow-lg" />
+          <input type="text" value={currSearch} onChange={(e) => setCurrSearch(e.target.value)} placeholder="Search" alt="search bar" className="border-[1px] border-gray-400 h-10 px-6 py-4 min-w-72 rounded-md transition duration-300 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-orange-600 focus:shadow-lg max-md:min-w-72" />
           <button className="bg-white px-4 py-2 mx-2 rounded-md transition-all duration-300 text-orange-600 hover:bg-orange-600 hover:text-white ">Search</button>
         </div>
       </div>
-      <div className="grid grid-cols-12 gap-16 px-32 items-start">
-        <div className="col-span-3 py-6 px-4 bg-white border-t-8 border-orange-600 flex gap-2">
+      <div className="grid grid-cols-12 md:gap-10 lg:gap-6 xl:gap-16 px-10 xl:px-32 items-start">
+        <div className=" col-span-12 md:col-span-3 py-6 px-4 bg-white border-t-8 border-orange-600 flex gap-2">
           <div>
               <Image src="/pujaListImg/7.jpg" width={50} height={50} alt="okok" />
           </div>
@@ -93,17 +93,17 @@ export default function PujaPage() {
               pujaTypes.map((onetype) => {
                 if (currType === onetype) {
                   return (
-                    <button key={""} className="my-1 p-2 text-left w-full rounded-md font-semibold bg-gray-200 border-[0.5px] border-orange-600 text-orange-600" onClick={() => handleTypeChange(onetype)}>{onetype}</button>
+                    <button key={""} className="my-1 p-2 text-left md:text-sm lg:text-base  w-full rounded-md font-semibold bg-gray-200 border-[0.5px] border-orange-600 text-orange-600" onClick={() => handleTypeChange(onetype)}>{onetype}</button>
                   )
                 }
                 return (
-                  <button key={""} className="my-1 p-2 text-left w-full rounded-md font-semibold hover:bg-gray-200 hover:border-[0.5px] border-orange-600 hover:text-orange-600" onClick={() => handleTypeChange(onetype)}>{onetype}</button>
+                  <button key={""} className="my-1 p-2 text-left md:text-sm lg:text-base w-full rounded-md font-semibold hover:bg-gray-200 hover:border-[0.5px] border-orange-600 hover:text-orange-600" onClick={() => handleTypeChange(onetype)}>{onetype}</button>
                 )
               })
             }
           </div>
         </div>
-        <div className="col-span-9 grid grid-cols-12 gap-8">
+        <div className=" col-span-12 md:col-span-9 grid grid-cols-12 gap-8">
           {pageNo === 1 && content(pujas1)}
           {pageNo === 2 && content(pujas2)}
           {pageNo === 3 && content(pujas3)}

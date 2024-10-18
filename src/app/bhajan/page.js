@@ -80,17 +80,17 @@ export default function BhajanPage() {
   );
 
   return (
-    <div className="bg-gray-200 py-10 px-20">
+    <div className="bg-gray-200 py-10 px-10 md:px-20">
       <div className="flex justify-center items-center pb-10">
         <div
           onClick={() => setContent(true)}
-          className={content ? 'px-48 py-2 bg-white font-semibold' : 'px-48 py-2 bg-orange-600 font-semibold text-white cursor-pointer'}
+          className={content ? 'px-10 sm:px-20 md:px-24 lg:px-36 xl:px-48 py-2 bg-white font-semibold' : 'px-10 sm:px-20 md:px-24 lg:px-36 xl:px-48 py-2 bg-orange-600 font-semibold text-white cursor-pointer'}
         >
           Bhajans
         </div>
         <div
           onClick={handleFavClick}
-          className={content ? 'px-48 py-2 bg-orange-600 font-semibold text-white cursor-pointer' : 'px-48 py-2 bg-white font-semibold'}
+          className={content ? 'px-10 sm:px-20 md:px-24 lg:px-36 xl:px-48 py-2 bg-orange-600 font-semibold text-white cursor-pointer' : 'px-10 sm:px-20 md:px-24 lg:px-36 xl:px-48 py-2 bg-white font-semibold'}
         >
           Favourites
         </div>

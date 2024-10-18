@@ -15,7 +15,7 @@ export default function OrderPage() {
         orderData?.slice().reverse()
         .map((order) => {
           return (
-            <OrderCard order={order} />
+            <OrderCard key={order.transactionId} order={order} />
           )
         })
       }

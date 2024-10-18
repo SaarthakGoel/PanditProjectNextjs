@@ -12,8 +12,8 @@ export default function PujaCard({item}) {
   }
 
   return (
-    <FadeIn cssClass={`col-span-4 flex flex-col p-6 rounded-lg bg-white`}>
-      <Image loading="lazy" className="h-48" src={item.image} width={300} height={300} />
+    <FadeIn cssClass={` col-span-12 md:col-span-6 lg:col-span-4 flex flex-col p-6 rounded-lg bg-white`}>
+      <Image loading="lazy" className="h-48" src={item.image} width={300} height={300}/>
       <span className="text-xl font-bold pt-4">{item.puja_name}</span>
       <p className="text-slate-500 text-sm pt-4">{item.description}</p>
       <hr className="my-3" />

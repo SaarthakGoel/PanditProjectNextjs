@@ -54,10 +54,10 @@ export default function BhajanCard({ videoId, thumbnail, title, description }) {
   },[favArr]);
 
   return (
-    <FadeIn cssClass={`col-span-3 flex flex-col justify-center items-center bg-orange-600 text-white p-4 rounded-lg`}>
-      <Image src={thumbnail} onClick={handleThumbnailClick} loading="lazy"  width={480} height={360} alt="" className="rounded-md mb-2 cursor-pointer" />
+    <FadeIn cssClass={`col-span-12 md:col-span-6 lg:col-span-4  xl:col-span-3 flex flex-col justify-center items-center bg-orange-600 text-white p-4 rounded-lg`}>
+      <Image src={thumbnail} onClick={handleThumbnailClick} loading="lazy" width={480} height={360} alt="" className="rounded-md mb-2 cursor-pointer" />
       <div className="flex gap-4 justify-between">
-      <span className="text-lg text-center font-semibold">{title}</span>
+      <span className="text-base md:text-lg text-center font-semibold">{title}</span>
       <button disabled={!userId} onClick={handleAddToFav} className="disabled:opacity-50"><FaHeart style={favIconClass} /></button>
       </div>
     </FadeIn>

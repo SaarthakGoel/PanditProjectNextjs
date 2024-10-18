@@ -114,8 +114,11 @@ export default function OnePuja({ params }) {
 
         {/* Action Buttons */}
         <div className="flex flex-col py-5 gap-5">
-          <button disabled={date === ""} onClick={handleAddToCart} className="w-full text-center bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-full text-lg disabled:opacity-50">
+          <button disabled={date === "" && inCart} onClick={handleAddToCart} className="w-full text-center bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-full text-lg disabled:opacity-50">
             {buttonText}
+          </button>
+          <button onClick={() => router.push('/cart')} className="w-full text-center bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-full text-lg disabled:opacity-50">
+            Go to Cart
           </button>
         </div>
       </Animate3>
