@@ -24,7 +24,7 @@ export default function CartPage() {
   let subtotal = 0;
 
   cartArr.forEach(item => {
-    subtotal += pujas[item.pujaId].price;
+    subtotal += pujas[item.pujaId-1].price;
   });
 
   let tax = subtotal === 0 ? 0 : (subtotal * 8) / 100
