@@ -35,7 +35,15 @@ export default function OnePage({ params }) {
 
   const { bhajanId } = params;
   const videoId = bhajanId[0];
-  const thumbnail = decodeURIComponent(bhajanId[1]);
+
+  const protocol = decodeURIComponent(bhajanId[1]);
+  const host = bhajanId[3];                          
+  const pathType = bhajanId[4];                     
+  const abc = bhajanId[5];                       
+  const xyz = bhajanId[6]; 
+
+  const thumbnail = `${protocol}//${host}/${pathType}/${abc}/${xyz}`;
+  console.log(thumbnail)
 
   const [description, setDescription] = useState("Top Hindi Bhajans");
   const [title, setTitle] = useState("Bhajan")
@@ -47,10 +55,10 @@ export default function OnePage({ params }) {
     setIsClient(true);
     console.log(bhajanId)
     if (bhajanId[3]) {
-      setDescription(decodeURIComponent(bhajanId[3]));
+      setDescription(decodeURIComponent(bhajanId[8]));
     }
     if (bhajanId[2]) {
-      setTitle(decodeURIComponent(bhajanId[2]));
+      setTitle(decodeURIComponent(bhajanId[7]));
     }
   }, []);
 
