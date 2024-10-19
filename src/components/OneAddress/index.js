@@ -35,7 +35,7 @@ export default function OneAddress() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
+    <div className="max-w-2xl mx-auto mt-10 p-6 sm:bg-white rounded-lg shadow-lg">
       <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
         Select an Address
       </h2>

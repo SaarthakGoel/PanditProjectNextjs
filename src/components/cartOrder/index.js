@@ -41,8 +41,8 @@ export default function CartOrder ({pujaId , date , time}) {
     />
     <div className="flex flex-col flex-grow bg-white rounded-r-md">
       {/* Header */}
-      <div className="flex justify-between items-center bg-orange-500 p-2 md:p-4 rounded-tr-md">
-        <p className=" text-xs sm:text-lg md:text-xl font-semibold">{pujas[pujaId-1].puja_name}</p>
+      <div className="flex justify-between items-center bg-orange-500 py-3 p-2 md:py-4 md:p-4 rounded-tr-md">
+        <p className=" text-sm sm:text-lg md:text-xl font-semibold">{pujas[pujaId-1].puja_name}</p>
         <p className="text-xs sm:text-base md:text-lg font-semibold">Date: {date}</p>
       </div>
 
@@ -60,7 +60,7 @@ export default function CartOrder ({pujaId , date , time}) {
           Delete
         </button>
         <p className="text-xs sm:text-sm md:text-lg font-semibold"><span className="hidden sm:inline">Time Slot: </span>{time}</p>
-        <p className="text-sm sm:text-lg md:text-2xl font-semibold text-gray-800">
+        <p className="text-base sm:text-lg md:text-2xl font-semibold text-gray-800">
           &#8377;{pujas[pujaId-1].price}
         </p>
       </div>

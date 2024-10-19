@@ -74,8 +74,8 @@ export default function MapWithAddressSelection() {
 
   return (
       <div>
-        <div className=" bg-white p-8 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
+        <div className=" sm:bg-white mb-40 lg:mb-0 p-4 sm:p-8 rounded-lg shadow-lg">
+        <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-6 text-center">
             Add New Address
           </h2>
         <MapContainer center={[28.6139, 77.209]} zoom={13} style={{ zIndex : '0', height: '250px', width: '100%' }} >

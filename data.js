@@ -1,10 +1,10 @@
 export const pujas = [
   {
     "puja_id": 1,
-    "puja_name": "Ganesh Chaturthi Puja",
+    "puja_name": "Ganesh Chaturthi",
     "type": "Festivities",
     "price": 5000,
-    "description": "Performed to invoke Lord Ganesha's blessings during the festival of Ganesh Chaturthi, believed to remove obstacles.",
+    "description": "Performed to invoke Lord Ganesha's blessings during Ganesh Chaturthi, believed to remove obstacles.",
     "image": "/pujaListImg/1.png"
   },
   {
@@ -25,7 +25,7 @@ export const pujas = [
   },
   {
     "puja_id": 4,
-    "puja_name": "Griha Pravesh Puja",
+    "puja_name": "Griha Pravesh",
     "type": "Ceremonial",
     "price": 6000,
     "description": "Housewarming ceremony performed before moving into a new home for purifying the space.",
@@ -33,7 +33,7 @@ export const pujas = [
   },
   {
     "puja_id": 5,
-    "puja_name": "Maha Mrityunjaya Jaap",
+    "puja_name": "Maha Mrityunjaya",
     "type": "Dosha Nivaran Havan & Jaap",
     "price": 7500,
     "description": "Recitation of Maha Mrityunjaya Mantra to overcome obstacles, diseases, and untimely death.",
@@ -44,7 +44,7 @@ export const pujas = [
     "puja_name": "Vivah Sanskar",
     "type": "Marriage",
     "price": 25000,
-    "description": "A traditional Hindu wedding ritual that solemnizes the union of bride and groom according to Vedic principles.",
+    "description": "A traditional wedding ritual that solemnizes the union of bride and groom according to Vedas.",
     "image": "/pujaListImg/6.jpg"
   },
   {
@@ -60,7 +60,7 @@ export const pujas = [
     "puja_name": "Antim Sanskar",
     "type": "Death Rituals (Ancestral Rites)",
     "price": 15000,
-    "description": "Funeral rites performed to ensure the peaceful departure of the soul and its journey to the afterlife.",
+    "description": "Funeral rites performed to ensure peaceful departure of the soul and its journey to the afterlife.",
     "image": "/pujaListImg/8.jpg"
   },
   {
@@ -73,7 +73,7 @@ export const pujas = [
   },
   {
     "puja_id": 10,
-    "puja_name": "Navagraha Shanti Puja",
+    "puja_name": "Navagraha Shanti",
     "type": "Dosha Nivaran Havan & Jaap",
     "price": 6500,
     "description": "Performed to pacify the nine planets and reduce their negative influence in one's life.",
@@ -89,15 +89,15 @@ export const pujas = [
   },
   {
     "puja_id": 12,
-    "puja_name": "Makar Sankranti Puja",
+    "puja_name": "Makar Sankranti",
     "type": "Festivities",
     "price": 5000,
-    "description": "Performed on Makar Sankranti to celebrate the sun's transition and to bring in a prosperous harvest.",
+    "description": "Performed on Makar Sankranti to celebrate the sun's transition and bring in a prosperous harvest.",
     "image": "/pujaListImg/2.jpg"
   },
   {
     "puja_id": 13,
-    "puja_name": "Kaal Sarp Dosh Puja",
+    "puja_name": "Kaal Sarp Dosh",
     "type": "Dosha Nivaran Havan & Jaap",
     "price": 8000,
     "description": "A special ritual to remove the malefic effects of Kaal Sarp Dosh in one's horoscope.",
@@ -108,7 +108,7 @@ export const pujas = [
     "puja_name": "Upanayanam",
     "type": "Ceremonial",
     "price": 9000,
-    "description": "The sacred thread ceremony symbolizing the initiation of young boys into the study of Vedas and spirituality.",
+    "description": "The sacred thread ceremony symbolizing the initiation of young boys into the study of Vedas.",
     "image": "/pujaListImg/4.jpg"
   },
   {
@@ -116,7 +116,7 @@ export const pujas = [
     "puja_name": "Chhath Puja",
     "type": "Festivities",
     "price": 3000,
-    "description": "A Vedic festival dedicated to the Sun God, performed to thank the sun for life on earth and to seek blessings.",
+    "description": "A Vedic festival dedicated to the Sun God, performed to thank the sun for life on earth.",
     "image": "/pujaListImg/5.jpg"
   },
   {
@@ -124,7 +124,7 @@ export const pujas = [
     "puja_name": "Annaprashan Puja",
     "type": "Birth Related",
     "price": 3500,
-    "description": "The ceremony where a baby is fed solid food for the first time, performed to bless the child with health.",
+    "description": "The ceremony where a baby is fed solid food for the first time,to bless the child with health.",
     "image": "/pujaListImg/6.jpg"
   },
   {
@@ -148,7 +148,7 @@ export const pujas = [
     "puja_name": "Rudra Abhishek",
     "type": "Path [Recitation]",
     "price": 7000,
-    "description": "A powerful ritual dedicated to Lord Shiva, performed to seek blessings for prosperity, health, and peace.",
+    "description": "A powerful ritual dedicated to Lord Shiva, performed to seek blessings for prosperity.",
     "image": "/pujaListImg/9.jpg"
   },
   {
@@ -172,7 +172,7 @@ export const pujas = [
     "puja_name": "Pitru Paksha Puja",
     "type": "Death Rituals (Ancestral Rites)",
     "price": 6000,
-    "description": "A ceremony to pay respect to ancestors, performed during the fortnight dedicated to the deceased in Hindu tradition.",
+    "description": "A ceremony to pay respect to ancestors, dedicated to the deceased in Hindu tradition.",
     "image": "/pujaListImg/2.jpg"
   },
   {
@@ -180,7 +180,7 @@ export const pujas = [
     "puja_name": "Ayush Homam",
     "type": "Dosha Nivaran Havan & Jaap",
     "price": 8000,
-    "description": "A special homam to increase longevity and ensure a healthy life, performed for both children and adults.",
+    "description": "A special homam to increase longevity and ensure a healthy life, performed for children.",
     "image": "/pujaListImg/3.jpg"
   },
   {
@@ -193,10 +193,10 @@ export const pujas = [
   },
   {
     "puja_id": 25,
-    "puja_name": "Business Opening Puja",
+    "puja_name": "Business Opening",
     "type": "Business",
     "price": 7000,
-    "description": "A ritual performed before the opening of a new business to seek blessings for success, prosperity, and longevity.",
+    "description": "A ritual performed before the opening of a new business to seek blessings for success.",
     "image": "/pujaListImg/5.jpg"
   },
   {
@@ -209,10 +209,10 @@ export const pujas = [
   },
   {
     "puja_id": 27,
-    "puja_name": "Durga Saptashati Path",
+    "puja_name": "Durga Saptashati",
     "type": "Path [Recitation]",
     "price": 5000,
-    "description": "A powerful recitation of 700 verses dedicated to Goddess Durga, invoking her blessings for protection and success.",
+    "description": "A powerful recitation of 700 verses dedicated to Goddess Durga, invoking her blessings for protection.",
     "image": "/pujaListImg/7.jpg"
   },
   {
@@ -220,12 +220,12 @@ export const pujas = [
     "puja_name": "Chandi Path",
     "type": "Path [Recitation]",
     "price": 8000,
-    "description": "An elaborate recitation to invoke the blessings of Goddess Chandi, performed to overcome difficulties and enemies.",
+    "description": "An elaborate recitation to invoke the blessings of Goddess Chandi, performed to overcome enemies.",
     "image": "/pujaListImg/8.jpg"
   },
   {
     "puja_id": 29,
-    "puja_name": "Akhand Ramayan Path",
+    "puja_name": "Akhand Ramayan",
     "type": "Path [Recitation]",
     "price": 12000,
     "description": "A continuous recitation of the entire Ramayana, performed to seek Lord Rama's blessings for peace.",
@@ -236,7 +236,7 @@ export const pujas = [
     "puja_name": "Hanuman Chalisa Path",
     "type": "Path [Recitation]",
     "price": 3500,
-    "description": "A recitation of Hanuman Chalisa, performed to seek strength, courage, and the blessings of Lord Hanuman.",
+    "description": "A recitation of Hanuman Chalisa, performed to seek strength and the blessings of Lord Hanuman.",
     "image": "/pujaListImg/10.png"
   }
 ];
