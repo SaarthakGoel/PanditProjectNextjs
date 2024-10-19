@@ -77,23 +77,23 @@ export default function OnePuja({ params }) {
 
 
   return (
-    <div className="px-20 py-10 bg-gray-200 flex justify-center gap-16">
-      <div>
+    <div className="px-10 lg:px-20 py-10 bg-gray-200 flex flex-col md:flex-row justify-center gap-5 md:gap-16">
+      <div className="flex flex-col">
         <Animate6 cssClass={`flex flex-col justify-center items-center rounded-md bg-white p-5 mb-5 shadow-md`}>
-          <h1 className="text-4xl font-semibold p-4 text-orange-700">{item.puja_name}</h1>
-          <p className="text-gray-500 text-md">{item.description}</p>
+          <h1 className="text-xl md:text-3xl lg:text-4xl font-bold p-4 text-orange-700">{item.puja_name}</h1>
+          <p className="text-gray-500 text-xs md:text-sm lg:text-base">{item.description}</p>
         </Animate6>
         <Animate5 cssClass={`flex justify-center rounded-md bg-white py-5 shadow-lg`}>
           <Image className="" src={item.image} width={500} height={500} />
         </Animate5>
       </div>
 
-      <Animate3 cssClass={`bg-white py-10 px-20 rounded-md shadow-lg`}>
+      <Animate3 cssClass={`bg-white flex flex-col justify-center py-5 md:py-10 px-10 lg:px-16 rounded-md shadow-lg mb-20 md:mb-0`}>
         {/* Price */}
-        <div className="text-4xl font-semibold py-5 text-orange-700 mb-5">Price: ₹{item.price}</div>
+        <div className="text-2xl md:text-3xl text-nowrap text-center font-semibold py-5 text-orange-700 mb-5">Price: ₹{item.price}</div>
 
         <div className="mb-5">
-          <label className="block text-lg text-gray-600 mb-2">Select Date:</label>
+          <label className="block md:text-lg text-gray-600 mb-2">Select Date:</label>
           <input
             type="date"
             className="w-full border-2 border-gray-300 p-2 rounded focus:border-orange-600 focus:ring-2 focus:ring-orange-600 outline-none"
@@ -104,7 +104,7 @@ export default function OnePuja({ params }) {
         </div>
 
         <div className="mb-5">
-          <label className="block text-lg text-gray-600 mb-2">Select Time Slot:</label>
+          <label className="block md:text-lg text-gray-600 mb-2">Select Time Slot:</label>
           <select onChange={(e) => setTime(e.target.value)} className="w-full border-2 border-gray-300 p-2 rounded focus:border-orange-600 focus:ring-2 focus:ring-orange-600 outline-none">
             {timeSlots.map((slot, index) => (
               <option key={index} value={slot}>{slot}</option>
@@ -114,10 +114,10 @@ export default function OnePuja({ params }) {
 
         {/* Action Buttons */}
         <div className="flex flex-col py-5 gap-5">
-          <button disabled={date === "" && inCart} onClick={handleAddToCart} className="w-full text-center bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-full text-lg disabled:opacity-50">
+          <button disabled={date === "" && inCart} onClick={handleAddToCart} className="w-full text-center bg-orange-600 hover:bg-orange-700 text-white py-2 md:py-3 rounded-full md:text-lg disabled:opacity-50">
             {buttonText}
           </button>
-          <button onClick={() => router.push('/cart')} className="w-full text-center bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-full text-lg disabled:opacity-50">
+          <button onClick={() => router.push('/cart')} className="w-full text-center bg-orange-600 hover:bg-orange-700 text-white py-2 md:py-3 rounded-full md:text-lg disabled:opacity-50">
             Go to Cart
           </button>
         </div>

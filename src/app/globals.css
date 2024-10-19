@@ -6,6 +6,20 @@ body{
   padding-top: 21vh;
 }
 
+@media (max-width: 1024px) {
+  
+}
+
+@media (max-width: 768px) {
+  
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top : 19vh;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

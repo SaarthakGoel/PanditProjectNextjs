@@ -77,15 +77,15 @@ export default function CartPage() {
 
   const content1 = (
     <div className="h-[60vh] flex justify-center items-center">
-      <p className="text-5xl font-semibold">Your cart is empty 🥺</p>
+      <p className="text-5xl mx-4 font-semibold">Your cart is empty 🥺</p>
     </div>
   )
 
   const content2 = (
     <div className="grid grid-cols-12 bg-gray-200 pb-24">
       <div className="col-span-1"></div>
-      <div className=" col-span-6">
-        <p className="text-5xl pt-10 font-semibold pb-10">Cart</p>
+      <div className=" col-span-10 xl:col-span-6">
+        <p className="text-3xl md:text-5xl py-10 font-semibold">Cart</p>
         {
           cartArr.map((item) => {
             return (
@@ -95,37 +95,37 @@ export default function CartPage() {
         }
       </div>
       <div className="col-span-1"></div>
-      <div className="col-span-3">
-        <Animate3 cssClass={`bg-white mt-20 p-6 shadow-lg rounded-lg`}>
+      <div className="col-span-12 xl:col-span-3 flex flex-col md:flex-row xl:flex-col justify-center items-center gap-5 md:gap-10 xl:gap-0">
+        <Animate3 cssClass={`bg-white w-[60vw] md:w-[40vw] xl:w-full mt-6 sm:mt-14 md:mt-20 p-6 shadow-lg rounded-lg`}>
           {/* Summary Header */}
           <div className="bg-orange-500 text-white text-center py-4 rounded-t-lg">
-            <h2 className="text-2xl font-bold">Summary</h2>
+            <h2 className="text-xl md:text-2xl font-bold">Summary</h2>
           </div>
 
           {/* Cart Total */}
           <div className="p-6 space-y-4">
             <div className="flex justify-between items-center">
-              <p className="text-lg text-gray-600">Subtotal:</p>
-              <p className="text-xl font-semibold text-gray-900">&#8377;{subtotal}</p>
+              <p className="text-base md:text-lg text-gray-600">Subtotal:</p>
+              <p className="text-lg md:text-xl font-semibold text-gray-900">&#8377;{subtotal}</p>
             </div>
             <div className="flex justify-between items-center">
-              <p className="text-lg text-gray-600">GST (8%):</p>
-              <p className="text-xl font-semibold text-gray-900">&#8377;{tax}</p>
+              <p className="text-base md:text-lg text-gray-600">GST (8%):</p>
+              <p className="text-lg md:text-xl font-semibold text-gray-900">&#8377;{tax}</p>
             </div>
             <div className="flex justify-between items-center border-t border-gray-300 pt-4">
-              <p className="text-lg text-gray-800 font-bold">Total:</p>
-              <p className="text-2xl font-bold text-gray-900">&#8377;{total}</p>
+              <p className="text-base md:text-lg text-gray-800 font-bold">Total:</p>
+              <p className="text-xl md:text-2xl font-bold text-gray-900">&#8377;{total}</p>
             </div>
           </div>
 
           {/* Checkout Button */}
-          <div className="mt-6">
-            <button onClick={handleCheckout} className="w-full py-3 bg-orange-600 text-white font-bold rounded-lg hover:bg-orange-700 transition-all duration-200">
+          <div className="mt-4 md:mt-6">
+            <button onClick={handleCheckout} className="w-full py-2 md:py-3 bg-orange-600 text-white font-bold rounded-lg hover:bg-orange-700 transition-all duration-200">
               Proceed to Checkout
             </button>
           </div>
         </Animate3>
-        <Animate3 cssClass={`flex gap-4 justify-center items-center my-5`}>
+        <Animate3 cssClass={`flex flex-col xl:flex-row gap-4 justify-center items-center my-5`}>
           {
             addresses.map((item) => {
               if (item.selected === true) {

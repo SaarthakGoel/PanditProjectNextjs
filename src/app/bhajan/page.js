@@ -39,7 +39,7 @@ export default function BhajanPage() {
   }
 
   if (!finalData) {
-    return <h1 className="text-5xl text-center my-96 font-bold">Loading...</h1>;
+    return <h1 className="text-5xl text-center my-72 md:my-96 font-bold">Loading...</h1>;
   }
 
   const bhajanContent = (
@@ -67,7 +67,7 @@ export default function BhajanPage() {
 
   const favContent = (
     <div className="grid grid-cols-12 gap-6">
-      {favArr.map((item) => (
+      {favArr && favArr.length ?  favArr.map((item) => (
         <BhajanCard
           key={item.videoId}
           videoId={item.videoId}
@@ -75,7 +75,7 @@ export default function BhajanPage() {
           title={item.title}
           description={item.description}
         />
-      ))}
+      )) : <h1 className="text-4xl text-center font-bold col-span-12 my-32 md:my-48 mx-10">Your Favourites is Empty🙂</h1>}
     </div>
   );
 
