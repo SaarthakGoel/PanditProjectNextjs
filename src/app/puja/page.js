@@ -46,10 +46,10 @@ export default function PujaPage() {
     setCurrType(onetype);
   }
 
-  const content = (pujas) => {
+  const content = (pujas999) => {
     return (
       currType === "" ?
-        pujas.map((puja) => {
+        pujas999.map((puja) => {
           if (puja.puja_name.toLowerCase().includes(currSearch.toLowerCase())) {
             return (
                 <PujaCard key={puja.puja_id} item={puja} />

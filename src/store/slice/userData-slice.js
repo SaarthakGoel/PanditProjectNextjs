@@ -72,9 +72,13 @@ const userDataSlice = createSlice({
       state.address = arr;
       console.log(state.address)
       console.log('Redux Address selected')
+    },
+    logOutUserData(state , action){
+      console.log('working')
+      return initialState;
     }
   }
 })
 
-export const {setUserData , addFavourite , removeFavourite , addToCart , removeFromCart , addAddress , removeAddress , setSelected} = userDataSlice.actions;
+export const {setUserData , addFavourite , removeFavourite , addToCart , removeFromCart , addAddress , removeAddress , setSelected , logOutUserData} = userDataSlice.actions;
 export default userDataSlice.reducer;

@@ -8,7 +8,6 @@ import { FaHeart } from 'react-icons/fa';
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import FadeIn from "../animations/animationComp";
-import Animate4 from "../animations/animate4";
 
 export default function BhajanCard({ videoId, thumbnail, title, description }) {
 
@@ -39,11 +38,11 @@ export default function BhajanCard({ videoId, thumbnail, title, description }) {
   }
 
   function handleThumbnailClick(){
-    router.push(`/bhajan/${videoId}/${encodedThumb}/${title}/${description}/`)
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
+    router.push(`/bhajan/${videoId}/${encodedThumb}/${title}/${description}/`)
   }
 
   useEffect(() => {
