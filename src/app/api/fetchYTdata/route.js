@@ -3,7 +3,7 @@ import { ytData } from "../../../../data";
 
 export async function fetchYTdata() {
   try{
-    const res = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=tophindibhajan&type=video&key=${process.env.YT_API_KEY}&maxResults=2`);
+    const res = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=tophindibhajan&type=video&key=${process.env.YT_API_KEY}&maxResults=10`);
     //const data = ytData
     const data = await res.json();
     return data;
@@ -16,7 +16,7 @@ export async function fetchYTdata() {
 
 export async function fetchMoreYTdata(nextPageToken){
   try{
-    const res = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=bhajan&type=video&maxResults=1&key=${process.env.YT_API_KEY}&pageToken=${nextPageToken}`);
+    const res = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=bhajan&type=video&maxResults=5&key=${process.env.YT_API_KEY}&pageToken=${nextPageToken}`);
     //const data = ytData
     const data = await res.json();
     return data;
