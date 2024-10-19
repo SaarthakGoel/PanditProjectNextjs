@@ -11,8 +11,6 @@ import FadeIn from "../animations/animationComp";
 
 export default function BhajanCard({ videoId, thumbnail, title, description }) {
 
-  const encodedThumb = encodeURIComponent(thumbnail);
-
   const [favIconClass , setFavIconClass] = useState({color : 'white' , fontSize : '28px'});
   const [isFav , setIsFav] = useState(false)
 
@@ -42,6 +40,7 @@ export default function BhajanCard({ videoId, thumbnail, title, description }) {
       top: 0,
       behavior: "smooth"
     });
+    const encodedThumb = encodeURIComponent(thumbnail);
     router.push(`/bhajan/${videoId}/${encodedThumb}/${title}/${description}/`)
   }
 
