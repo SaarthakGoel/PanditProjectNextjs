@@ -54,10 +54,10 @@ export default function OnePage({ params }) {
   useEffect(() => {
     setIsClient(true);
     console.log(bhajanId)
-    if (bhajanId[3]) {
+    if (bhajanId[8]) {
       setDescription(decodeURIComponent(bhajanId[8]));
     }
-    if (bhajanId[2]) {
+    if (bhajanId[7]) {
       setTitle(decodeURIComponent(bhajanId[7]));
     }
   }, []);
