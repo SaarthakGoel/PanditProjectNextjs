@@ -46,7 +46,7 @@ export default function CartPage() {
   let items = [];
   
   cartArr.map((item) => {
-    items = [...items , pujas[item.pujaId]]
+    items = [...items , pujas[item.pujaId-1]]
   })
 
   // Redirect to login if not logged in

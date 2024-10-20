@@ -1,25 +1,13 @@
 import Midsection from '@/components/midsection/Midsection';
-import Head from 'next/head';
 import Image from 'next/image';
-import {auth , currentUser} from '@clerk/nextjs/server';
 import { EventEmitter } from 'events';
 
 EventEmitter.defaultMaxListeners = 20;
 
 export default function Home() {
 
-  const {userId} = auth();
-
-  console.log(userId)
-
   return (
     <div className="min-h-screen bg-gray-50">
-      <Head>
-        <title>Pandit On Demand</title>
-        <meta name="description" content="Book Pandits for Puja Online" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       {/* Hero Section */}
       <section className="bg-white flex justify-evenly pt-10 pb-24">
         <div className="px-6 py-16 text-center lg:py-24">
