@@ -48,11 +48,11 @@ export async function POST(req) {
         let orderId = [];
 
         foundUser.cart.map((item) => {
-          orderId = [...orderId , { pujaId : item.pujaId , date : item.date , time : item.time }];
+          orderId = [...orderId , { pujaId : item.pujaId - 1 , date : item.date , time : item.time }];
         })
 
         const order = {
-          orderId: orderId-1,
+          orderId: orderId,
           transactionId: session.created,
           nowDate: new Date().toLocaleDateString(),
           nowTime: new Date().toLocaleTimeString(),
