@@ -52,7 +52,7 @@ export async function POST(req) {
         })
 
         const order = {
-          orderId: orderId,
+          orderId: orderId-1,
           transactionId: session.created,
           nowDate: new Date().toLocaleDateString(),
           nowTime: new Date().toLocaleTimeString(),

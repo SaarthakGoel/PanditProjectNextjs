@@ -17,7 +17,7 @@ export default function CartPage() {
   const { session } = useSession();
   const userId = session?.user?.id;
 
-  const currUrl = encodeURIComponent('http://localhost:3000/cart/address')
+  const currUrl = encodeURIComponent('https://samskarara.vercel.app/cart/address')
 
   const cartArr = useSelector((state) => state.userData.cart);
 
