@@ -8,14 +8,14 @@ import SignInListener from "@/components/signInListener"
 import SignOutListener from "@/components/signOutListener"
 
 
-export default function ReduxProvider({children}) {
-   return (
+export default function ReduxProvider({ children }) {
+  return (
     <Provider store={store}>
       <Header />
-        <SignInListener />
-        <SignOutListener />
-        {children}
-        <Footer />
+      <SignInListener />
+      <SignOutListener />
+      {children}
+      <Footer />
     </Provider>
-   )
+  )
 }

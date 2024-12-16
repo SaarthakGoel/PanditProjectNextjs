@@ -5,6 +5,7 @@
 body{
   padding-top: 21vh;
   width: 100vw;
+  overflow-x: hidden;
 }
 
 @media (max-width: 1024px) {
